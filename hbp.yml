@@ -20,7 +20,7 @@ authors:
 
 platform: MIP
 component:
-  mip_building_block: data-factory
+  mip_building_block: infrastructure
   nature: docker-image
 
 license:
@@ -31,8 +31,8 @@ license:
 code_repositories:
   - name: chuv-gitlab
     visibility: private
-    url: https://___.chuv.ch/data-factory/docker-alembic/
-    git_clone: https://___.chuv.ch/data-factory/docker-alembic.git
+    url: https://___.chuv.ch/mip-infra/docker-alembic/
+    git_clone: https://___.chuv.ch/mip-infra/docker-alembic.git
   - name: github/LREN-CHUV
     visibility: public
     url: https://github.io/LREN-CHUV/docker-alembic/
