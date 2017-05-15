@@ -1,0 +1,9 @@
+alembic:
+  build: Dockerfile
+  image: hbpmip/alembic
+  pre:
+    - echo "Building hbpmip/alembic image"
+  post:
+    - echo "Finished building hbpmip/alembic image"
+  test:
+    - ./tests/test.sh
