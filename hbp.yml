@@ -44,7 +44,7 @@ code_repositories:
 
 code_quality_checks:
   codacy:
-    badge: https://api.codacy.com/project/badge/Grade/TODO
+    badge: https://api.codacy.com/project/badge/Grade/bc651b5107f3413594cf788333cbb415
     url: "https://www.codacy.com/app/hbp-mip/docker-alembic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LREN-CHUV/docker-alembic&amp;utm_campaign=Badge_Grade"
 
 testing:
