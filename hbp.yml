@@ -53,9 +53,9 @@ testing:
     - command: /tests/tesh.sh
 
 release_management:
-  current_version: 0.8.10-1
-  current_code_release: https://github.com/HBPMedical/docker-alembic/archive/0.8.10-1.zip
-  current_docker_release: docker pull hbpmip/alembic:0.8.10-1
+  current_version: 0.9.1-0
+  current_code_release: https://github.com/HBPMedical/docker-alembic/archive/0.9.1-0.zip
+  current_docker_release: docker pull hbpmip/alembic:0.9.1-0
   release_script: 'publish.sh'
 
 continuous_integration:
@@ -70,10 +70,10 @@ continuous_integration:
 distribution:
   docker_hub:
     name: hbpmip/alembic
-    current_tag: 0.8.10-1
+    current_tag: 0.9.1-0
     url: https://hub.docker.com/r/hbpmip/alembic/
     badge: https://img.shields.io/badge/docker-hbpmip%2Falembic-008bb8.svg
-    command: docker pull hbpmip/alembic:0.8.10-1
+    command: docker pull hbpmip/alembic:0.9.1-0
 
 planning:
   github:
