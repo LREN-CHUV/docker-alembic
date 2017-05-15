@@ -29,9 +29,9 @@ services:
     links:
      - "test_db:db"
 
-  alembic_check:
+  alembic_db_check:
     image: "hbpmip/pgtap:0.96.0-3"
-    container_name: "achemy-db-check"
+    container_name: "alembic-db-check"
     environment:
       - HOST=db
       - PORT=5432

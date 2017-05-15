@@ -29,11 +29,11 @@ script_location = db_migrations
 # are written from script.py.mako
 # output_encoding = utf-8
 
-sqlalembic.url = {{ default .Env.DB_URL "postgresql://postgres:postgres@localhost:5432/postgres" }}
+sqlalchemy.url = {{ default .Env.DB_URL "postgresql://postgres:postgres@localhost:5432/postgres" }}
 
 # Logging configuration
 [loggers]
-keys = root,sqlalembic,alembic
+keys = root,sqlalchemy,alembic
 
 [handlers]
 keys = console
@@ -46,10 +46,10 @@ level = WARN
 handlers = console
 qualname =
 
-[logger_sqlalembic]
+[logger_sqlalchemy]
 level = WARN
 handlers =
-qualname = sqlalembic.engine
+qualname = sqlalchemy.engine
 
 [logger_alembic]
 level = INFO
