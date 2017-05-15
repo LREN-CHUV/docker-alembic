@@ -15,7 +15,7 @@ To use migrations with Alembic, you need either to mount a folder /db_migrations
 
 Example:
 
-`docker run --rm -e "DB_URL=postgresql://postgres:postgres@localhost:5432/postgres" hbpmip/alembic upgrade head`
+`docker run --rm -e "DB_URL=postgresql://postgres:postgres@localhost:5432/postgres" hbpmip/alembic:0.8.10-0 upgrade head`
 
 ## Build
 
