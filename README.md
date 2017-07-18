@@ -22,7 +22,7 @@ Run: `./build.sh`
 
 ## Test
 
-Run: `.tests/test.sh`
+Run: `./tests/test.sh`
 
 ## Publish on Docker Hub
 
