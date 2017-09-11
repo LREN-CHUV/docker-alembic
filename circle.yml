@@ -15,3 +15,6 @@ dependencies:
 test:
   override:
     - PATH=$PATH:/$HOME/.captain/bin/ ./tests/test.sh
+notify:
+  webhooks:
+  - url: 'https://webhook.atomist.com/atomist/circle'
