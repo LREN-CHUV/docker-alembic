@@ -10,7 +10,7 @@ ARG VERSION
 # Install Dockerize
 ########################################################################################################################
 
-ENV DOCKERIZE_VERSION=v0.5.0
+ENV DOCKERIZE_VERSION=v0.6.0
 RUN apk update && apk add wget postgresql-dev \
     && wget -O /tmp/dockerize.tar.gz https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-${DOCKERIZE_VERSION}.tar.gz \
     && tar -C /usr/local/bin -xzvf /tmp/dockerize.tar.gz \
