@@ -20,12 +20,12 @@ RUN apk update && apk add wget postgresql-dev \
 # Install Alembic and Psycopg2
 ########################################################################################################################
 ENV ALEMBIC_VERSION='0.9.1' \
-    PSYCOPG2_VERSION='2.7.1'
+    PSYCOPG2_VERSION='2.7.4'
 
 RUN apk update \
   && apk add --virtual build-deps gcc python3-dev musl-dev \
   && apk add postgresql-dev \
-  && pip install --no-cache-dir alembic==$ALEMBIC_VERSION psycopg2==$PSYCOPG2_VERSION \
+  && pip install --no-cache-dir alembic==$ALEMBIC_VERSION psycopg2-binary==$PSYCOPG2_VERSION \
   && apk del build-deps gcc
 
 ########################################################################################################################
