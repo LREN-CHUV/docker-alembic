@@ -1,0 +1,23 @@
+---
+
+version: 2
+jobs:
+  build:
+    working_directory: ~/src
+    docker:
+      - image: hbpmip/docker-compose-for-ci:17.06-1
+    environment:
+       - CIRCLECI: true
+    steps:
+      - setup_remote_docker:
+          version: 17.06.0-ce
+      - checkout
+      - run: |
+          apk add --no-cache bash build-base git py-pip python python-dev curl
+          pip install pre-commit
+          curl -sSL https://raw.githubusercontent.com/harbur/captain/v1.1.0/install.sh | bash
+      - run: |
+          pre-commit install
+          pre-commit run --all-files
+      - run: PATH=$PATH:/$HOME/.captain/bin/ ./build.sh
+      - run: PATH=$PATH:/$HOME/.captain/bin/ ./tests/test.sh
