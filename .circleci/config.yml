@@ -1,23 +1,38 @@
 ---
 
-version: 2
+# Sample advanced CircleCI configuration: https://github.com/transcom/mymove/blob/master/.circleci/config.yml
+
+version: 2.1
 jobs:
   build:
     working_directory: ~/src
     docker:
-      - image: hbpmip/docker-compose-for-ci:17.06-1
+      - image: hbpmip/docker-compose-for-ci:18.09-5
     environment:
        - CIRCLECI: true
     steps:
       - setup_remote_docker:
-          version: 17.06.0-ce
+          version: 18.06.0-ce
       - checkout
-      - run: |
-          apk add --no-cache bash build-base git py-pip python python-dev curl
-          pip install pre-commit
-          curl -sSL https://raw.githubusercontent.com/harbur/captain/v1.1.0/install.sh | bash
-      - run: |
-          pre-commit install
-          pre-commit run --all-files
-      - run: PATH=$PATH:/$HOME/.captain/bin/ ./build.sh
-      - run: PATH=$PATH:/$HOME/.captain/bin/ ./tests/test.sh
+      - restore_cache:
+          keys:
+            - pre-commit-dot-cache-$CACHE_VERSION-{{ checksum ".pre-commit-config.yaml" }}
+      - run:
+          name: "Install requirements"
+          command: |
+            docker --version
+            pre-commit install
+      - run:
+          name: "Validate code quality"
+          command: |
+            pre-commit run --all-files
+      - save_cache:
+          key: pre-commit-dot-cache-CACHE_VERSION-{{ checksum ".pre-commit-config.yaml" }}
+          paths:
+            - ~/.cache/pre-commit
+      - run:
+          name: "Build the project"
+          command: ./build.sh
+      - run:
+          name: "Run integration tests"
+          command: ./test.sh
