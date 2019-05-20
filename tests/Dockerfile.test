@@ -1,0 +1,3 @@
+FROM hbpmip/pgtap:1.0.0-2
+
+COPY sql/* /test/

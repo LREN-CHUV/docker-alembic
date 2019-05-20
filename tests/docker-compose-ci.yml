@@ -19,26 +19,27 @@ services:
 
   # Use the latest image built as this is what is under test
   alembic:
-    image: "hbpmip/alembic:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: "alembic"
     command: "upgrade head"
-    volumes:
-      - ./db_migrations:/db_migrations
     environment:
       - DB_URL=postgresql://test:testpwd@db:5432/test
     links:
      - "test_db:db"
 
+  # Use the latest image built as this is what is under test
   db_check:
-    image: "hbpmip/pgtap:1.0.0-2"
-    container_name: "alembic-db-check"
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: "db_check"
     environment:
       - HOST=db
       - PORT=5432
       - DATABASE=test
       - USER=test
       - PASSWORD=testpwd
-    volumes:
-      - ./sql:/test
     links:
       - "test_db:db"
