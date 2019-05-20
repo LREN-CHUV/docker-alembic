@@ -52,7 +52,7 @@ echo "Test idempotence"
 $DOCKER_COMPOSE run alembic
 $DOCKER_COMPOSE run db_check
 
-exit_code="$($DOCKER inspect alembic_db_check --format='{{.State.ExitCode}}')"
+exit_code="$($DOCKER inspect db_check --format='{{.State.ExitCode}}')"
 
 if [[ "$exit_code" != "0" ]]; then
   echo "Integration tests failed!"
