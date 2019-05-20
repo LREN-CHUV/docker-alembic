@@ -50,7 +50,7 @@ $DOCKER_COMPOSE run db_check
 echo
 echo "Test idempotence"
 $DOCKER_COMPOSE run alembic
-$DOCKER_COMPOSE run db_check
+$DOCKER_COMPOSE run --name db_check db_check
 
 exit_code="$($DOCKER inspect db_check --format='{{.State.ExitCode}}')"
 
