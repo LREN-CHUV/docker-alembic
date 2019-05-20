@@ -1,10 +1,6 @@
-FROM python:3.6.6-alpine3.8
+FROM python:3.6.8-alpine3.9
 
 MAINTAINER mirco.nasuti@chuv.ch
-
-ARG BUILD_DATE
-ARG VCS_REF
-ARG VERSION
 
 ########################################################################################################################
 # Install Dockerize
@@ -43,6 +39,10 @@ COPY alembic.ini.tmpl /alembic.ini.tmpl
 WORKDIR /
 ENTRYPOINT ["dockerize", "-template", "/alembic.ini.tmpl:/alembic.ini", "alembic"]
 CMD ["help"]
+
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="hbpmip/alembic" \

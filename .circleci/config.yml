@@ -35,4 +35,4 @@ jobs:
           command: ./build.sh
       - run:
           name: "Run integration tests"
-          command: ./test.sh
+          command: ./tests/test.sh
